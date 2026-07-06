@@ -1,0 +1,17 @@
+{
+  "name": "portfolio-cms-root",
+  "version": "1.0.0",
+  "description": "Root configuration to run both client and server concurrently",
+  "scripts": {
+    "install:all": "npm --prefix server install && npm --prefix client install",
+    "dev:server": "npm --prefix server run dev",
+    "dev:client": "npm --prefix client run dev",
+    "dev": "npx concurrently \"npm run dev:server\" \"npm run dev:client\""
+  },
+  "keywords": [],
+  "author": "Daniel Paul",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^12.15.0"
+  }
+}

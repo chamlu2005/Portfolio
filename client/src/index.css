@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', 'Outfit', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Glassmorphism shortcuts */
+.glass-panel {
+  @apply backdrop-blur-md bg-white/70 border border-slate-200/50 shadow-sm dark:bg-slate-900/60 dark:border-slate-800/50 dark:shadow-2xl;
+}
+
+.glass-card {
+  @apply backdrop-blur-md bg-white/40 border border-white/20 shadow-md dark:bg-slate-900/40 dark:border-slate-800/30;
+}
+
+.glass-nav {
+  @apply backdrop-blur-lg bg-white/75 border-b border-slate-200/50 dark:bg-slate-950/75 dark:border-slate-900;
+}
+
+/* Custom animated backgrounds */
+.mesh-gradient {
+  background-color: hsla(224, 85%, 9%, 1);
+  background-image: 
+    radial-gradient(at 10% 20%, hsla(217, 100%, 14%, 0.8) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, hsla(220, 95%, 12%, 0.7) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, hsla(186, 94%, 15%, 0.6) 0px, transparent 50%);
+}
+
+.mesh-gradient-light {
+  background-color: hsla(220, 30%, 96%, 1);
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(220, 100%, 90%, 0.5) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(186, 100%, 90%, 0.5) 0px, transparent 50%),
+    radial-gradient(at 50% 100%, hsla(224, 100%, 92%, 0.4) 0px, transparent 50%);
+}
+
+/* Glowing mesh blobs */
+.glow-blob {
+  filter: blur(120px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Custom Scrollbar for premium layouts */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full dark:bg-slate-800 hover:bg-primary/50 transition-colors;
+}
+
+/* Typing cursor animation */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.typing-cursor::after {
+  content: '|';
+  animation: blink 0.8s infinite;
+  @apply text-primary font-light;
+}
+
+/* Active sidebar classes */
+.sidebar-link-active {
+  @apply bg-primary/10 text-primary border-l-4 border-primary font-medium dark:bg-primary/20 dark:text-primary-light;
+}
+
+/* Interactive card effects */
+.hover-card-trigger:hover {
+  transform: translateY(-4px) scale(1.01);
+  @apply shadow-xl border-primary/20 dark:border-primary/30 transition-all duration-300;
+}
+
+/* Custom input focuses */
+.input-premium {
+  @apply w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all duration-200 dark:text-slate-100;
+}
