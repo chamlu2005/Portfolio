@@ -116,27 +116,55 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Database start-up & listen
-const startServer = async () => {
-  try {
-    // 1. Initialize DB Connection
-    await dbManager.initialize();
-    
-    // 2. Run schema setup
-    await databaseService.runMigrations();
-    
-    // 3. Seed initial data
-    await seedDatabase();
+// Serverless-safe Database Initialization Middleware
+let isDbInitialized = false;
+let initPromise = null;
 
-    // 4. Spin up Express listener
-    app.listen(PORT, () => {
-      console.log(`🚀 Server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode.`);
-      console.log(`🌐 API endpoints accessible at http://localhost:${PORT}/api`);
-    });
+const ensureDbConnection = async (req, res, next) => {
+  if (isDbInitialized) return next();
+  
+  if (!initPromise) {
+    initPromise = (async () => {
+      console.log('⚡ Initializing Database connection and running migrations...');
+      await dbManager.initialize();
+      await databaseService.runMigrations();
+      await seedDatabase();
+      isDbInitialized = true;
+      console.log('✅ Database fully initialized.');
+    })();
+  }
+  
+  try {
+    await initPromise;
+    next();
   } catch (err) {
-    console.error('❌ Failed to start application server.', err);
-    process.exit(1);
+    console.error('❌ Database initialization failed:', err);
+    next(err);
   }
 };
 
-startServer();
+// Bind lazy DB check as the first global middleware
+app.use(ensureDbConnection);
+
+// Spin up local Express listener (only if not running on Vercel)
+if (!process.env.VERCEL) {
+  const startLocalServer = async () => {
+    try {
+      await dbManager.initialize();
+      await databaseService.runMigrations();
+      await seedDatabase();
+      isDbInitialized = true;
+      
+      app.listen(PORT, () => {
+        console.log(`🚀 Local server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode.`);
+        console.log(`🌐 API endpoints accessible at http://localhost:${PORT}/api`);
+      });
+    } catch (err) {
+      console.error('❌ Failed to start local server.', err);
+      process.exit(1);
+    }
+  };
+  startLocalServer();
+}
+
+export default app;
