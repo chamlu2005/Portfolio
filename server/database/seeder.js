@@ -23,14 +23,14 @@ export const seedDatabase = async () => {
     // 2. Seed Profile
     await databaseService.updateProfile({
       name: 'Daniel Paul S',
-      role_summary: 'Full Stack Developer | React Developer | Spring Boot Developer | AI & IoT Enthusiast',
-      bio: 'I am an Information Technology undergraduate passionate about Full Stack Development, React.js, Spring Boot, AI, IoT, and modern web technologies. I enjoy developing responsive applications, learning new technologies, and building products that create real-world impact.',
+      role_summary: 'Full Stack Developer | React Developer | AI & IoT Enthusiast',
+      bio: 'I am an Information Technology undergraduate passionate about Full Stack Development, React.js, Node.js, Express, AI, IoT, and modern web technologies. I enjoy developing responsive applications, learning new technologies, and building products that create real-world impact.',
       age: 21,
       location: 'Coimbatore, Tamil Nadu',
       degree: 'B.Tech Information Technology',
-      cgpa: 6.7,
+      cgpa: 6.5,
       languages: 'English, Tamil',
-      interests: 'React, Spring Boot, IoT, AI, Full Stack Development',
+      interests: 'React, Node.js, Express, IoT, AI, Full Stack Development',
       resume_url: '',
       avatar_url: '/assets/images/profile.png',
       github: 'https://github.com',
@@ -42,96 +42,103 @@ export const seedDatabase = async () => {
 
     // 3. Seed Skills
     const skills = [
-      // 1. Programming Languages
-      { name: 'Java', category: 'Programming Languages', proficiency: 85, icon: 'Java' },
-      { name: 'JavaScript', category: 'Programming Languages', proficiency: 88, icon: 'Javascript' },
-      { name: 'SQL', category: 'Programming Languages', proficiency: 85, icon: 'Sql' },
+      // Programming Languages
+      { name: 'C', category: 'Programming Languages', proficiency: 80, icon: 'Code' },
+      { name: 'C++', category: 'Programming Languages', proficiency: 82, icon: 'Code' },
+      { name: 'Java', category: 'Programming Languages', proficiency: 88, icon: 'Java' },
+      { name: 'Python', category: 'Programming Languages', proficiency: 85, icon: 'Python' },
+      { name: 'JavaScript', category: 'Programming Languages', proficiency: 90, icon: 'Javascript' },
 
-      // 2. Frontend
+      // Frontend
       { name: 'HTML5', category: 'Frontend', proficiency: 95, icon: 'Html5' },
       { name: 'CSS3', category: 'Frontend', proficiency: 92, icon: 'Css3' },
-      { name: 'JavaScript (ES6+)', category: 'Frontend', proficiency: 88, icon: 'Javascript' },
       { name: 'React.js', category: 'Frontend', proficiency: 90, icon: 'React' },
-      { name: 'Responsive Web Design', category: 'Frontend', proficiency: 85, icon: 'Layout' },
-      { name: 'Bootstrap 5', category: 'Frontend', proficiency: 88, icon: 'Bootstrap' },
-      { name: 'Tailwind CSS', category: 'Frontend', proficiency: 85, icon: 'Tailwind' },
-      { name: 'Material UI (MUI)', category: 'Frontend', proficiency: 80, icon: 'Mui' },
+      { name: 'Tailwind CSS', category: 'Frontend', proficiency: 88, icon: 'Tailwind' },
+      { name: 'Bootstrap', category: 'Frontend', proficiency: 85, icon: 'Bootstrap' },
 
-      // 3. Backend
-      { name: 'Spring Boot', category: 'Backend', proficiency: 82, icon: 'Spring' },
-      { name: 'REST APIs', category: 'Backend', proficiency: 84, icon: 'Api' },
-      { name: 'Java', category: 'Backend', proficiency: 85, icon: 'Java' },
-      { name: 'Firebase', category: 'Backend', proficiency: 80, icon: 'Firebase' },
+      // Backend
+      { name: 'Node.js', category: 'Backend', proficiency: 85, icon: 'Node' },
+      { name: 'Express.js', category: 'Backend', proficiency: 83, icon: 'Express' },
 
-      // 4. Database
-      { name: 'SQL', category: 'Database', proficiency: 85, icon: 'Sql' },
-      { name: 'MySQL', category: 'Database', proficiency: 85, icon: 'Mysql' },
-      { name: 'SQL Workbench', category: 'Database', proficiency: 82, icon: 'Database' },
+      // Database
+      { name: 'MySQL', category: 'Database', proficiency: 88, icon: 'Mysql' },
+      { name: 'Firebase', category: 'Database', proficiency: 82, icon: 'Firebase' },
+      { name: 'MongoDB', category: 'Database', proficiency: 80, icon: 'Database' },
 
-      // 5. Tools & Platforms
-      { name: 'Git', category: 'Tools & Platforms', proficiency: 82, icon: 'Git' },
-      { name: 'GitHub', category: 'Tools & Platforms', proficiency: 84, icon: 'Github' },
-      { name: 'VS Code', category: 'Tools & Platforms', proficiency: 95, icon: 'Vscode' },
-      { name: 'Eclipse', category: 'Tools & Platforms', proficiency: 80, icon: 'Code' },
-      { name: 'Selenium', category: 'Tools & Platforms', proficiency: 85, icon: 'Shield' },
-      { name: 'AWS', category: 'Tools & Platforms', proficiency: 75, icon: 'Aws' },
-      { name: 'AntiGravity', category: 'Tools & Platforms', proficiency: 90, icon: 'Command' },
+      // Tools
+      { name: 'Git', category: 'Tools', proficiency: 85, icon: 'Git' },
+      { name: 'GitHub', category: 'Tools', proficiency: 88, icon: 'Github' },
+      { name: 'VS Code', category: 'Tools', proficiency: 95, icon: 'Vscode' },
+      { name: 'Postman', category: 'Tools', proficiency: 85, icon: 'Command' },
+      { name: 'Figma', category: 'Tools', proficiency: 80, icon: 'Figma' },
+      { name: 'SQL Workbench', category: 'Tools', proficiency: 82, icon: 'Database' },
 
-      // 6. Soft Skills
-      { name: 'Problem Solving', category: 'Soft Skills', proficiency: 90, icon: 'Brain' },
-      { name: 'Team Collaboration', category: 'Soft Skills', proficiency: 92, icon: 'Users' },
-      { name: 'Communication', category: 'Soft Skills', proficiency: 88, icon: 'Message' },
-      { name: 'Leadership', category: 'Soft Skills', proficiency: 85, icon: 'Award' },
-      { name: 'Time Management', category: 'Soft Skills', proficiency: 87, icon: 'Clock' },
-      { name: 'Critical Thinking', category: 'Soft Skills', proficiency: 89, icon: 'Zap' }
+      // Concepts
+      { name: 'Data Structures & Algorithms', category: 'Concepts', proficiency: 88, icon: 'Brain' },
+      { name: 'OOP', category: 'Concepts', proficiency: 90, icon: 'Award' },
+      { name: 'DBMS', category: 'Concepts', proficiency: 85, icon: 'Database' },
+      { name: 'Operating Systems', category: 'Concepts', proficiency: 82, icon: 'Cpu' },
+      { name: 'Computer Networks', category: 'Concepts', proficiency: 80, icon: 'Globe' },
+      { name: 'REST APIs', category: 'Concepts', proficiency: 88, icon: 'Api' }
     ];
     for (const skill of skills) {
       await databaseService.createSkill(skill);
     }
+    console.log('📝 Seeded skills.');
     
     // 4. Seed Projects
     const projects = [
       {
-        title: 'Accident Detection and Alert System',
-        description: 'Built an intelligent vehicle accident detection system using ESP32, GPS, GSM and MPU6050 sensors. Implemented TinyML for accurate accident detection and automatic emergency alerts with live GPS location.',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsWYzCjJiaxS5LjL3DXbk6zOY4HAtZ7_jr6Y990UimBppZVqD1pj3ilpE&s=10',
-        github_url: 'https://github.com',
-        demo_url: 'https://demo.com',
-        tags: 'ESP32, GPS, GSM, MPU6050, TinyML, Embedded C, IoT, Ongoing, 2026',
-        category: 'IoT'
-      },
-      {
         title: 'Personal Portfolio Content Management System',
-        description: 'Developed a CMS that allows dynamic management of portfolio projects, skills, achievements and profile content using React.js and Firebase.',
+        description: 'Developed a dynamic portfolio CMS using React, Node.js, Express, and Firebase. Allows administrators to manage projects, skills, education, certifications, and achievements through an admin dashboard. Features secure authentication, file uploads, downloadable resumes, responsive UI, and Netlify deployment.',
         image: 'https://media.licdn.com/dms/image/v2/D4E12AQFG_bRKMWbgTg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1739245056904?e=2147483647&v=beta&t=bDkeH2W5Nbj-grYTJKEYQo_d2YA3EEcctExhpDAWEas',
         github_url: 'https://github.com',
         demo_url: 'https://demo.com',
-        tags: 'React.js, Firebase, REST APIs, Responsive Design, Completed, 2025, Full Stack',
+        tags: 'React.js, Node.js, Express.js, Firebase, JWT, CMS',
         category: 'Full Stack'
       },
       {
         title: 'Online Food Delivery System',
-        description: 'Built an online food ordering platform with customer management, delivery tracking and AI-powered analytics.',
+        description: 'Developed a responsive food ordering platform using React and Firebase. Includes restaurant browsing, menu management, shopping cart, secure authentication, and order tracking. Optimized for desktop and mobile devices.',
         image: 'https://thumbs.dreamstime.com/b/food-delivery-logo-design-template-134749604.jpg',
         github_url: 'https://github.com',
         demo_url: 'https://demo.com',
-        tags: 'React.js, Spring Boot, Firebase, REST APIs, AI Analytics, Completed, 2025',
+        tags: 'React.js, Firebase, Tailwind CSS, Responsive Web Design',
         category: 'Web Application'
+      },
+      {
+        title: 'Jewellery ERP System UI/UX',
+        description: 'Designed a complete Jewellery ERP dashboard in Figma. Includes Inventory, Sales, Purchase, Manufacturing, CRM, Accounting, Reports, HR, and User Management. Focused on luxury branding and enterprise usability.',
+        image: '/assets/images/profile.png',
+        github_url: 'https://github.com',
+        demo_url: 'https://demo.com',
+        tags: 'Figma, UI/UX Design, ERP, Jewellery, Wireframing, Prototyping',
+        category: 'UI/UX Design'
+      },
+      {
+        title: 'AI-based Accident Detection and Emergency Alert System',
+        description: 'Developed an AI-powered road accident detection system using Python, OpenCV, Machine Learning, and Flask. Detects accidents in real time and automatically sends emergency alerts. Includes accident visualization, prediction, and reporting dashboard.',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsWYzCjJiaxS5LjL3DXbk6zOY4HAtZ7_jr6Y990UimBppZVqD1pj3ilpE&s=10',
+        github_url: 'https://github.com',
+        demo_url: 'https://demo.com',
+        tags: 'Python, OpenCV, Machine Learning, Flask, AI, Computer Vision',
+        category: 'AI / ML'
       }
     ];
     for (const project of projects) {
       await databaseService.createProject(project);
     }
+    console.log('📝 Seeded projects.');
 
     // 5. Seed Experience
     const experiences = [
       {
         company: 'Grevya Technologies',
-        role: 'Full Stack Intern',
+        role: 'AI & Full Stack Development Intern',
         location: 'Coimbatore, India',
         start_date: 'Feb 2026',
         end_date: 'June 2026',
-        description: 'Developed responsive company website. Frontend development, performance optimization, and feature implementation. Worked with AI/ML workflows and collaborated with the development team.',
+        description: 'Developed modern web applications using React and Firebase. Worked on responsive UI development and CMS implementation. Collaborated using Git and GitHub. Participated in debugging, testing, and deployment. Improved application performance and user experience.',
         current: false
       },
       {
@@ -147,16 +154,17 @@ export const seedDatabase = async () => {
     for (const exp of experiences) {
       await databaseService.createExperience(exp);
     }
+    console.log('📝 Seeded experiences.');
 
     // 6. Seed Education
     const educations = [
       {
-        institution: 'Sri Krishna College of Technology',
+        institution: 'Dr. Mahalingam College of Engineering and Technology',
         degree: 'Bachelor of Technology',
         field: 'Information Technology',
         start_date: '2023',
         end_date: '2027',
-        grade: 'CGPA: 6.7'
+        grade: 'CGPA: 6.5'
       },
       {
         institution: 'Bharani Park Matric Hr.Sec.School',
@@ -178,33 +186,39 @@ export const seedDatabase = async () => {
     for (const edu of educations) {
       await databaseService.createEducation(edu);
     }
+    console.log('📝 Seeded education.');
 
     // 7. Seed Certificates
     const certificates = [
-      { title: 'React', issuer: 'Coursera', issue_date: '2025', verification_url: '#', credential_id: 'C-1' },
-      { title: 'AI for Everyone', issuer: 'Coursera', issue_date: '2025', verification_url: '#', credential_id: 'C-2' },
-      { title: 'DevOps & SQL', issuer: 'Udemy', issue_date: '2025', verification_url: '#', credential_id: 'C-3' },
-      { title: 'AWS Cloud Practitioner (Sample)', issuer: 'AWS', issue_date: '2024', verification_url: '#', credential_id: 'C-4' },
-      { title: 'Java Programming Masterclass (Sample)', issuer: 'Udemy', issue_date: '2024', verification_url: '#', credential_id: 'C-5' },
-      { title: 'Spring Boot Essentials (Sample)', issuer: 'Udemy', issue_date: '2024', verification_url: '#', credential_id: 'C-6' },
-      { title: 'Git & GitHub Professional (Sample)', issuer: 'Coursera', issue_date: '2024', verification_url: '#', credential_id: 'C-7' }
+      { title: 'Java Programming', issuer: 'Oracle / Udemy', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'JV-2024' },
+      { title: 'Python Programming', issuer: 'Coursera / Google', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'PY-2024' },
+      { title: 'Web Development', issuer: 'Udemy', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'WD-2024' },
+      { title: 'React Development', issuer: 'Coursera / Meta', issue_date: '2025', verification_url: 'https://verification.com', credential_id: 'RE-2025' },
+      { title: 'SQL & Database Management', issuer: 'Udemy / SQL Workbench', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'SQL-2024' },
+      { title: 'UI/UX Design using Figma', issuer: 'Figma Academy', issue_date: '2025', verification_url: 'https://verification.com', credential_id: 'UIUX-2025' },
+      { title: 'Git & GitHub', issuer: 'Coursera', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'GIT-2024' },
+      { title: 'Machine Learning Fundamentals', issuer: 'Stanford / Coursera', issue_date: '2025', verification_url: 'https://verification.com', credential_id: 'ML-2025' }
     ];
     for (const cert of certificates) {
       await databaseService.createCertificate(cert);
     }
+    console.log('📝 Seeded certificates.');
 
     // 8. Seed Achievements
     const achievements = [
-      { title: 'Smart India Hackathon Participant', organization: 'Govt of India', date: '2025', description: 'Participated in the national level Smart India Hackathon.', type: 'Hackathon' },
-      { title: 'Core Organizer - Avantaa 2024', organization: 'SKCT', date: '2024', description: 'Core Organizer for the Avantaa 2024 college technical fest.', type: 'Event' },
-      { title: 'Completed Multiple Full Stack Projects', organization: 'Self', date: '2025', description: 'Successfully built and deployed several full stack applications using React and Spring Boot.', type: 'Project' },
-      { title: 'Built IoT Accident Detection System', organization: 'Academic Project', date: '2026', description: 'Engineered a smart accident detection system using ESP32 and TinyML.', type: 'Project' }
+      { title: 'Built multiple full-stack web applications', organization: 'Self', date: '2025', description: 'Developed, optimized, and deployed full-stack web apps using modern frameworks.', type: 'Development' },
+      { title: 'Developed a Personal Portfolio CMS with Admin Panel', organization: 'Self', date: '2025', description: 'Created a highly responsive CMS application enabling admin operations for portfolio management.', type: 'Project' },
+      { title: 'Designed a complete Jewellery ERP UI/UX', organization: 'Client Project', date: '2025', description: 'Designed a comprehensive Jewellery ERP dashboard layout focusing on luxury branding.', type: 'Design' },
+      { title: 'Participated in coding competitions and technical events', organization: 'College & Online Platforms', date: '2024', description: 'Engaged in coding hackathons and local/national technical fests.', type: 'Competition' },
+      { title: 'Solved Data Structures and Algorithm problems', organization: 'LeetCode / Hackerrank', date: '2025', description: 'Practiced problem solving on multiple online platforms to build robust coding skills.', type: 'Coding' },
+      { title: 'Continuously learning Full Stack Development and AI technologies', organization: 'Self-directed', date: '2026', description: 'Acquiring certifications and hands-on project exposure in advanced AI and full-stack paths.', type: 'Learning' }
     ];
     for (const ach of achievements) {
       await databaseService.createAchievement(ach);
     }
+    console.log('📝 Seeded achievements.');
 
-    // 9. Seed Testimonials (Empty as per user deleting placeholder? "Replace every placeholder..." I'll create one realistic one)
+    // 9. Seed Testimonials
     const testimonials = [
       { client_name: 'Sarah Jenkins', position: 'Senior Talent Partner', company: 'Google Cloud APAC', feedback: 'Daniel is an exceptional student with a strong grasp of Full Stack Development and IoT. His Accident Detection project showcased great problem-solving skills.', rating: 5, image: '/assets/images/profile.png' }
     ];

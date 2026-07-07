@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { 
   FiGithub, FiLinkedin, FiInstagram, FiMail, FiDownload, FiBriefcase, 
   FiMessageSquare, FiBookOpen, FiAward, FiMessageCircle, FiSun, FiMoon, 
-  FiSearch, FiMenu, FiX, FiCheckCircle, FiExternalLink, FiChevronLeft, FiChevronRight, FiStar, FiImage
+  FiSearch, FiMenu, FiX, FiCheckCircle, FiExternalLink, FiChevronLeft, FiChevronRight, FiStar, FiImage, FiEye
 } from 'react-icons/fi';
 import { toast } from 'react-toastify';
 import api from '../utils/api.js';
@@ -845,12 +845,25 @@ const Home = () => {
         </div>
 
         {/* Group by category */}
-        {['Programming Languages', 'Frontend', 'Backend', 'Database', 'Tools & Platforms', 'Soft Skills'].map(cat => {
-          const catSkills = skills.filter(s => s.category.trim().toLowerCase() === cat.trim().toLowerCase());
-          if (catSkills.length === 0) return null;
+        {(() => {
+          const preferredOrder = ['Programming Languages', 'Frontend', 'Backend', 'Database', 'Tools', 'Concepts'];
+          const existingCats = Array.from(new Set(skills.map(s => s.category.trim())));
           
-          return (
-            <div key={cat} className="mb-10">
+          const sortedCats = existingCats.sort((a, b) => {
+            const indexA = preferredOrder.findIndex(p => p.toLowerCase() === a.toLowerCase());
+            const indexB = preferredOrder.findIndex(p => p.toLowerCase() === b.toLowerCase());
+            if (indexA === -1 && indexB === -1) return a.localeCompare(b);
+            if (indexA === -1) return 1;
+            if (indexB === -1) return -1;
+            return indexA - indexB;
+          });
+          
+          return sortedCats.map(cat => {
+            const catSkills = skills.filter(s => s.category.trim().toLowerCase() === cat.trim().toLowerCase());
+            if (catSkills.length === 0) return null;
+            
+            return (
+              <div key={cat} className="mb-10">
               <h3 className="text-xl font-bold mb-6 text-slate-400 border-b border-slate-200/50 dark:border-slate-900 pb-2">{cat}</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {catSkills.map(skill => (
@@ -871,7 +884,8 @@ const Home = () => {
               </div>
             </div>
           );
-        })}
+        });
+      })()}
       </section>
 
       {/* PROJECTS SECTION */}
@@ -1028,17 +1042,31 @@ const Home = () => {
               <span className="text-[10px] font-bold text-primary tracking-widest block mb-2">{cert.issuer}</span>
               <h3 className="text-base font-bold mb-3 line-clamp-1">{cert.title}</h3>
               <p className="text-xs text-slate-500 dark:text-slate-400 mb-5 font-light">Issued: {cert.issue_date}</p>
-              <div className="flex justify-between items-center border-t border-slate-100 dark:border-slate-900 pt-4">
-                <span className="text-[10px] text-slate-400">ID: {cert.credential_id}</span>
-                <a 
-                  href={cert.verification_url} 
-                  target="_blank" 
-                  rel="noreferrer"
-                  onClick={() => logClickEvent('certificate_view', '1', cert.id.toString(), cert.title)}
-                  className="inline-flex items-center gap-1 text-xs text-primary dark:text-primary-light hover:underline font-semibold"
-                >
-                  Verify <FiExternalLink size={12} />
-                </a>
+              <div className="border-t border-slate-100 dark:border-slate-800/80 pt-4 mt-auto">
+                <div className="flex justify-between items-center mb-3">
+                  <span className="text-[10px] text-slate-400">ID: {cert.credential_id}</span>
+                </div>
+                <div className="flex gap-2">
+                  <a 
+                    href={cert.verification_url || '#'} 
+                    target="_blank" 
+                    rel="noreferrer"
+                    onClick={() => logClickEvent('certificate_view', '1', cert.id.toString(), cert.title)}
+                    className="flex-1 inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-xl bg-primary/10 hover:bg-primary/20 text-primary dark:text-primary-light text-[10px] font-bold transition-all duration-300 hover:-translate-y-0.5"
+                  >
+                    <FiEye size={12} className="shrink-0" />
+                    <span>View Certificate</span>
+                  </a>
+                  <a 
+                    href={cert.verification_url || '#'} 
+                    download={`${cert.title.replace(/\s+/g, '_')}_Certificate.pdf`}
+                    onClick={() => logClickEvent('certificate_download', '1', cert.id.toString(), cert.title)}
+                    className="flex-1 inline-flex items-center justify-center gap-1 px-2 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 text-[10px] font-bold transition-all duration-300 hover:-translate-y-0.5 border border-slate-200 dark:border-slate-800"
+                  >
+                    <FiDownload size={12} className="shrink-0" />
+                    <span>Download</span>
+                  </a>
+                </div>
               </div>
             </div>
           ))}
