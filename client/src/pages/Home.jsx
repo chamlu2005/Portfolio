@@ -846,7 +846,7 @@ const Home = () => {
 
         {/* Group by category */}
         {(() => {
-          const preferredOrder = ['Programming Languages', 'Frontend', 'Backend', 'Database', 'Tools', 'Concepts'];
+          const preferredOrder = ['Programming Languages', 'Frontend', 'Backend', 'Databases', 'Tools', 'Cloud & DevOps', 'Soft Skills'];
           const existingCats = Array.from(new Set(skills.map(s => s.category.trim())));
           
           const sortedCats = existingCats.sort((a, b) => {

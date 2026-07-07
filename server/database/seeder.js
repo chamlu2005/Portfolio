@@ -23,14 +23,14 @@ export const seedDatabase = async () => {
     // 2. Seed Profile
     await databaseService.updateProfile({
       name: 'Daniel Paul S',
-      role_summary: 'Full Stack Developer | React Developer | AI & IoT Enthusiast',
-      bio: 'I am an Information Technology undergraduate passionate about Full Stack Development, React.js, Node.js, Express, AI, IoT, and modern web technologies. I enjoy developing responsive applications, learning new technologies, and building products that create real-world impact.',
+      role_summary: 'Full Stack Engineer | React & Node.js Developer | Cloud Enthusiast',
+      bio: 'I am a passionate software engineer specializing in developing premium web applications using React, Node.js, Express, and cloud native architectures. With hands-on experience in full-stack engineering, databases, and continuous learning, I love building robust, secure, and user-centric systems.',
       age: 21,
       location: 'Coimbatore, Tamil Nadu',
       degree: 'B.Tech Information Technology',
       cgpa: 6.5,
       languages: 'English, Tamil',
-      interests: 'React, Node.js, Express, IoT, AI, Full Stack Development',
+      interests: 'Web Application Architectures, Cloud computing, UI/UX Design, Open Source',
       resume_url: '',
       avatar_url: '/assets/images/profile.png',
       github: 'https://github.com',
@@ -40,7 +40,7 @@ export const seedDatabase = async () => {
     });
     console.log('📝 Seeded profile details.');
 
-    // 3. Seed Skills
+    // 3. Seed Skills (25 Skills mapped to requests)
     const skills = [
       // Programming Languages
       { name: 'C', category: 'Programming Languages', proficiency: 80, icon: 'Code' },
@@ -59,11 +59,13 @@ export const seedDatabase = async () => {
       // Backend
       { name: 'Node.js', category: 'Backend', proficiency: 85, icon: 'Node' },
       { name: 'Express.js', category: 'Backend', proficiency: 83, icon: 'Express' },
+      { name: 'Spring Boot', category: 'Backend', proficiency: 80, icon: 'Spring' },
 
-      // Database
-      { name: 'MySQL', category: 'Database', proficiency: 88, icon: 'Mysql' },
-      { name: 'Firebase', category: 'Database', proficiency: 82, icon: 'Firebase' },
-      { name: 'MongoDB', category: 'Database', proficiency: 80, icon: 'Database' },
+      // Databases
+      { name: 'MySQL', category: 'Databases', proficiency: 88, icon: 'Mysql' },
+      { name: 'Firebase', category: 'Databases', proficiency: 82, icon: 'Firebase' },
+      { name: 'MongoDB', category: 'Databases', proficiency: 80, icon: 'Database' },
+      { name: 'PostgreSQL', category: 'Databases', proficiency: 85, icon: 'Database' },
 
       // Tools
       { name: 'Git', category: 'Tools', proficiency: 85, icon: 'Git' },
@@ -73,56 +75,76 @@ export const seedDatabase = async () => {
       { name: 'Figma', category: 'Tools', proficiency: 80, icon: 'Figma' },
       { name: 'SQL Workbench', category: 'Tools', proficiency: 82, icon: 'Database' },
 
-      // Concepts
-      { name: 'Data Structures & Algorithms', category: 'Concepts', proficiency: 88, icon: 'Brain' },
-      { name: 'OOP', category: 'Concepts', proficiency: 90, icon: 'Award' },
-      { name: 'DBMS', category: 'Concepts', proficiency: 85, icon: 'Database' },
-      { name: 'Operating Systems', category: 'Concepts', proficiency: 82, icon: 'Cpu' },
-      { name: 'Computer Networks', category: 'Concepts', proficiency: 80, icon: 'Globe' },
-      { name: 'REST APIs', category: 'Concepts', proficiency: 88, icon: 'Api' }
+      // Cloud & DevOps
+      { name: 'AWS', category: 'Cloud & DevOps', proficiency: 78, icon: 'Aws' },
+      { name: 'Docker', category: 'Cloud & DevOps', proficiency: 80, icon: 'Cpu' },
+      { name: 'Vercel', category: 'Cloud & DevOps', proficiency: 90, icon: 'Globe' },
+
+      // Soft Skills
+      { name: 'Problem Solving', category: 'Soft Skills', proficiency: 90, icon: 'Brain' },
+      { name: 'Team Collaboration', category: 'Soft Skills', proficiency: 92, icon: 'Users' },
+      { name: 'Communication', category: 'Soft Skills', proficiency: 88, icon: 'Message' }
     ];
     for (const skill of skills) {
       await databaseService.createSkill(skill);
     }
     console.log('📝 Seeded skills.');
     
-    // 4. Seed Projects
+    // 4. Seed Projects (6 Projects mapped to requests)
     const projects = [
       {
-        title: 'Personal Portfolio Content Management System',
-        description: 'Developed a dynamic portfolio CMS using React, Node.js, Express, and Firebase. Allows administrators to manage projects, skills, education, certifications, and achievements through an admin dashboard. Features secure authentication, file uploads, downloadable resumes, responsive UI, and Netlify deployment.',
-        image: 'https://media.licdn.com/dms/image/v2/D4E12AQFG_bRKMWbgTg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1739245056904?e=2147483647&v=beta&t=bDkeH2W5Nbj-grYTJKEYQo_d2YA3EEcctExhpDAWEas',
-        github_url: 'https://github.com',
-        demo_url: 'https://demo.com',
-        tags: 'React.js, Node.js, Express.js, Firebase, JWT, CMS',
-        category: 'Full Stack'
-      },
-      {
-        title: 'Online Food Delivery System',
-        description: 'Developed a responsive food ordering platform using React and Firebase. Includes restaurant browsing, menu management, shopping cart, secure authentication, and order tracking. Optimized for desktop and mobile devices.',
-        image: 'https://thumbs.dreamstime.com/b/food-delivery-logo-design-template-134749604.jpg',
-        github_url: 'https://github.com',
-        demo_url: 'https://demo.com',
-        tags: 'React.js, Firebase, Tailwind CSS, Responsive Web Design',
-        category: 'Web Application'
-      },
-      {
-        title: 'Jewellery ERP System UI/UX',
-        description: 'Designed a complete Jewellery ERP dashboard in Figma. Includes Inventory, Sales, Purchase, Manufacturing, CRM, Accounting, Reports, HR, and User Management. Focused on luxury branding and enterprise usability.',
+        title: 'AI Chat Application',
+        description: 'An intelligent real-time chat application powered by OpenAI GPT-4 API. Built supporting streaming text responses, custom system role prompts, dialogue history session logs, database backup threads, secure JWT session cookies, and responsive glassmorphism views.',
         image: '/assets/images/profile.png',
         github_url: 'https://github.com',
         demo_url: 'https://demo.com',
-        tags: 'Figma, UI/UX Design, ERP, Jewellery, Wireframing, Prototyping',
-        category: 'UI/UX Design'
+        tags: 'React, Node.js, Express, OpenAI API, JWT, Tailwind CSS',
+        category: 'AI / ML'
       },
       {
-        title: 'AI-based Accident Detection and Emergency Alert System',
-        description: 'Developed an AI-powered road accident detection system using Python, OpenCV, Machine Learning, and Flask. Detects accidents in real time and automatically sends emergency alerts. Includes accident visualization, prediction, and reporting dashboard.',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsWYzCjJiaxS5LjL3DXbk6zOY4HAtZ7_jr6Y990UimBppZVqD1pj3ilpE&s=10',
+        title: 'E-Commerce Platform',
+        description: 'A modern e-commerce application featuring product catalog browsing, advanced search sorting, dynamic checkout cart, Stripe payment gateway integrations, admin product inventory dashboards, and user order logs.',
+        image: '/assets/images/profile.png',
         github_url: 'https://github.com',
         demo_url: 'https://demo.com',
-        tags: 'Python, OpenCV, Machine Learning, Flask, AI, Computer Vision',
-        category: 'AI / ML'
+        tags: 'React, Spring Boot, MySQL, Stripe API, Redux Toolkit',
+        category: 'Web Application'
+      },
+      {
+        title: 'Personal Portfolio Content Management System',
+        description: 'A content management system allowing dynamic updates to projects, skills, certifications, and achievements. Supports secure administrator authentication, file upload capabilities, downloadable resumes, and visitor tracking dashboards.',
+        image: 'https://media.licdn.com/dms/image/v2/D4E12AQFG_bRKMWbgTg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1739245056904?e=2147483647&v=beta&t=bDkeH2W5Nbj-grYTJKEYQo_d2YA3EEcctExhpDAWEas',
+        github_url: 'https://github.com',
+        demo_url: 'https://demo.com',
+        tags: 'React.js, Node.js, Express, Firebase, JWT, Netlify',
+        category: 'Full Stack'
+      },
+      {
+        title: 'Hospital Management System',
+        description: 'An enterprise healthcare dashboard for managing patient medical records, doctor scheduling, dynamic appointment booking, prescription logs, inventory billing, and role-based staff portals.',
+        image: '/assets/images/profile.png',
+        github_url: 'https://github.com',
+        demo_url: 'https://demo.com',
+        tags: 'React, Node.js, Express, MySQL, Material UI, JWT',
+        category: 'Web Application'
+      },
+      {
+        title: 'Task Management App',
+        description: 'A collaborative Kanban task management platform inspired by Trello. Enables team workspaces, dragging-and-dropping task cards, assigning card checklists, setting alert deadlines, and real-time socket modifications.',
+        image: '/assets/images/profile.png',
+        github_url: 'https://github.com',
+        demo_url: 'https://demo.com',
+        tags: 'React, Node.js, Socket.io, MongoDB, Tailwind CSS, Framer Motion',
+        category: 'Full Stack'
+      },
+      {
+        title: 'Weather Dashboard',
+        description: 'A real-time weather dashboard pulling meteorological metrics from the OpenWeatherMap API. Features location autocomplete search, interactive temperature history charts, humidity logs, UV indexes, and 7-day local forecasts.',
+        image: '/assets/images/profile.png',
+        github_url: 'https://github.com',
+        demo_url: 'https://demo.com',
+        tags: 'React, OpenWeatherMap API, Chart.js, CSS3, Responsive Design',
+        category: 'Web Application'
       }
     ];
     for (const project of projects) {
@@ -130,11 +152,11 @@ export const seedDatabase = async () => {
     }
     console.log('📝 Seeded projects.');
 
-    // 5. Seed Experience
+    // 5. Seed Experience (3 Experiences mapped to requests)
     const experiences = [
       {
         company: 'Grevya Technologies',
-        role: 'AI & Full Stack Development Intern',
+        role: 'Full Stack Engineer Intern',
         location: 'Coimbatore, India',
         start_date: 'Feb 2026',
         end_date: 'June 2026',
@@ -143,11 +165,20 @@ export const seedDatabase = async () => {
       },
       {
         company: 'AJ & VG Media Pvt Ltd',
-        role: 'Software Development Intern',
+        role: 'Software Developer Intern',
         location: 'Coimbatore, India',
         start_date: 'May 2025',
-        end_date: 'May 2025',
+        end_date: 'Oct 2025',
         description: 'Developed ERP & CRM Jewellery Management System. Built Inventory Module, Sales Module, Billing Module, and Customer Management. Implemented Gold Weight Tracking and SQL CRUD Operations.',
+        current: false
+      },
+      {
+        company: 'TechVantage Solutions',
+        role: 'Junior Web Developer',
+        location: 'Remote',
+        start_date: 'Nov 2024',
+        end_date: 'Apr 2025',
+        description: 'Created highly responsive landing pages and customized theme components using HTML5, CSS3, and JavaScript. Optimized site load times, maintained server deployments, and executed database backups.',
         current: false
       }
     ];
@@ -156,7 +187,7 @@ export const seedDatabase = async () => {
     }
     console.log('📝 Seeded experiences.');
 
-    // 6. Seed Education
+    // 6. Seed Education (3 Educations mapped to requests)
     const educations = [
       {
         institution: 'Dr. Mahalingam College of Engineering and Technology',
@@ -188,30 +219,33 @@ export const seedDatabase = async () => {
     }
     console.log('📝 Seeded education.');
 
-    // 7. Seed Certificates
+    // 7. Seed Certificates (8 Certificates mapped to requests)
     const certificates = [
-      { title: 'Java Programming', issuer: 'Oracle / Udemy', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'JV-2024' },
-      { title: 'Python Programming', issuer: 'Coursera / Google', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'PY-2024' },
-      { title: 'Web Development', issuer: 'Udemy', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'WD-2024' },
-      { title: 'React Development', issuer: 'Coursera / Meta', issue_date: '2025', verification_url: 'https://verification.com', credential_id: 'RE-2025' },
-      { title: 'SQL & Database Management', issuer: 'Udemy / SQL Workbench', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'SQL-2024' },
-      { title: 'UI/UX Design using Figma', issuer: 'Figma Academy', issue_date: '2025', verification_url: 'https://verification.com', credential_id: 'UIUX-2025' },
-      { title: 'Git & GitHub', issuer: 'Coursera', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'GIT-2024' },
-      { title: 'Machine Learning Fundamentals', issuer: 'Stanford / Coursera', issue_date: '2025', verification_url: 'https://verification.com', credential_id: 'ML-2025' }
+      { title: 'Java Programming Masterclass', issuer: 'Udemy / Oracle Academy', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'JV-2024' },
+      { title: 'Python for Data Science', issuer: 'IBM / Coursera', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'PYDS-2024' },
+      { title: 'Responsive Web Development', issuer: 'freeCodeCamp', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'FCC-RWD' },
+      { title: 'React Developer Certification', issuer: 'Meta / Coursera', issue_date: '2025', verification_url: 'https://verification.com', credential_id: 'META-REACT' },
+      { title: 'SQL & Database Administration', issuer: 'Oracle / Udemy', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'SQL-DBA' },
+      { title: 'UI/UX Design using Figma', issuer: 'Figma Academy', issue_date: '2025', verification_url: 'https://verification.com', credential_id: 'FIG-UIUX' },
+      { title: 'Git & GitHub Professional', issuer: 'Atlassian / Coursera', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'GIT-PRO' },
+      { title: 'Machine Learning Fundamentals', issuer: 'Stanford / Coursera', issue_date: '2025', verification_url: 'https://verification.com', credential_id: 'STAN-ML' }
     ];
     for (const cert of certificates) {
       await databaseService.createCertificate(cert);
     }
     console.log('📝 Seeded certificates.');
 
-    // 8. Seed Achievements
+    // 8. Seed Achievements (9 Achievements mapped to requests)
     const achievements = [
-      { title: 'Built multiple full-stack web applications', organization: 'Self', date: '2025', description: 'Developed, optimized, and deployed full-stack web apps using modern frameworks.', type: 'Development' },
-      { title: 'Developed a Personal Portfolio CMS with Admin Panel', organization: 'Self', date: '2025', description: 'Created a highly responsive CMS application enabling admin operations for portfolio management.', type: 'Project' },
-      { title: 'Designed a complete Jewellery ERP UI/UX', organization: 'Client Project', date: '2025', description: 'Designed a comprehensive Jewellery ERP dashboard layout focusing on luxury branding.', type: 'Design' },
-      { title: 'Participated in coding competitions and technical events', organization: 'College & Online Platforms', date: '2024', description: 'Engaged in coding hackathons and local/national technical fests.', type: 'Competition' },
-      { title: 'Solved Data Structures and Algorithm problems', organization: 'LeetCode / Hackerrank', date: '2025', description: 'Practiced problem solving on multiple online platforms to build robust coding skills.', type: 'Coding' },
-      { title: 'Continuously learning Full Stack Development and AI technologies', organization: 'Self-directed', date: '2026', description: 'Acquiring certifications and hands-on project exposure in advanced AI and full-stack paths.', type: 'Learning' }
+      { title: 'Smart India Hackathon Participant', organization: 'Govt of India', date: '2025', description: 'Participated in the national level Smart India Hackathon solving enterprise problem statements.', type: 'Hackathon' },
+      { title: 'Coding Competition Winner', organization: 'CodeChef College Chapter', date: '2024', description: 'Secured 1st place in the college-level programming competition.', type: 'Competition' },
+      { title: 'Open Source Contributor', organization: 'GitHub / Vite', date: '2025', description: 'Contributed documentation fixes and core translations to several open source modules.', type: 'Contribution' },
+      { title: 'Full Stack Developer Certification', organization: 'DevAcademy', date: '2025', description: 'Completed intensive full stack development program covering React and Spring Boot.', type: 'Certification' },
+      { title: 'AI Project Completion', organization: 'Self-directed', date: '2025', description: 'Successfully engineered and deployed an OpenAI GPT-4 API chat application.', type: 'Project' },
+      { title: 'Dean\'s List', organization: 'Dr. MCET Academic Office', date: '2024', description: 'Received certificates of academic excellence for staying in top ranking divisions.', type: 'Academic' },
+      { title: 'Research Publication', organization: 'IEEE Student Conference', date: '2025', description: 'Published a paper investigating the applications of IoT systems in smart environment sensors.', type: 'Academic' },
+      { title: 'Technical Workshop Participation', organization: 'AWS User Group India', date: '2024', description: 'Attended full-day training workshops covering AWS cloud deployment architecture practices.', type: 'Event' },
+      { title: 'Leadership Award', organization: 'SKCT Tech Club', date: '2024', description: 'Honored as the lead coordinator managing campus hackathon activities and events.', type: 'Award' }
     ];
     for (const ach of achievements) {
       await databaseService.createAchievement(ach);
