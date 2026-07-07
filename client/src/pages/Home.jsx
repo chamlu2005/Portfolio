@@ -13,6 +13,215 @@ import profileImage from '../assets/images/profile.jpg';
 
 const defaultPlaceholder = "https://www.tandfonline.com/cms/asset/b967f2ba-a245-4503-bfdc-681e50dc8a9f/taut_a_2288483_f0006_oc.jpg";
 
+const defaultSampleProfile = {
+  name: 'Daniel Paul S',
+  role_summary: 'Full Stack Engineer | React & Node.js Developer | Cloud Enthusiast',
+  bio: 'I am a passionate software engineer specializing in developing premium web applications using React, Node.js, Express, and cloud native architectures. With hands-on experience in full-stack engineering, databases, and continuous learning, I love building robust, secure, and user-centric systems.',
+  age: 21,
+  location: 'Coimbatore, Tamil Nadu',
+  degree: 'B.Tech Information Technology',
+  cgpa: 6.5,
+  languages: 'English, Tamil',
+  interests: 'Web Application Architectures, Cloud computing, UI/UX Design, Open Source',
+  resume_url: '',
+  avatar_url: '/assets/images/profile.png',
+  github: 'https://github.com',
+  linkedin: 'https://linkedin.com',
+  instagram: 'https://instagram.com',
+  email: 'danielpaul2285@gmail.com'
+};
+
+const defaultSampleSkills = [
+  { id: 1, name: 'C', category: 'Programming Languages', proficiency: 80, icon: 'Code' },
+  { id: 2, name: 'C++', category: 'Programming Languages', proficiency: 82, icon: 'Code' },
+  { id: 3, name: 'Java', category: 'Programming Languages', proficiency: 88, icon: 'Java' },
+  { id: 4, name: 'Python', category: 'Programming Languages', proficiency: 85, icon: 'Python' },
+  { id: 5, name: 'JavaScript', category: 'Programming Languages', proficiency: 90, icon: 'Javascript' },
+  { id: 6, name: 'HTML5', category: 'Frontend', proficiency: 95, icon: 'Html5' },
+  { id: 7, name: 'CSS3', category: 'Frontend', proficiency: 92, icon: 'Css3' },
+  { id: 8, name: 'React.js', category: 'Frontend', proficiency: 90, icon: 'React' },
+  { id: 9, name: 'Tailwind CSS', category: 'Frontend', proficiency: 88, icon: 'Tailwind' },
+  { id: 10, name: 'Bootstrap', category: 'Frontend', proficiency: 85, icon: 'Bootstrap' },
+  { id: 11, name: 'Node.js', category: 'Backend', proficiency: 85, icon: 'Node' },
+  { id: 12, name: 'Express.js', category: 'Backend', proficiency: 83, icon: 'Express' },
+  { id: 13, name: 'Spring Boot', category: 'Backend', proficiency: 80, icon: 'Spring' },
+  { id: 14, name: 'MySQL', category: 'Databases', proficiency: 88, icon: 'Mysql' },
+  { id: 15, name: 'Firebase', category: 'Databases', proficiency: 82, icon: 'Firebase' },
+  { id: 16, name: 'MongoDB', category: 'Databases', proficiency: 80, icon: 'Database' },
+  { id: 17, name: 'PostgreSQL', category: 'Databases', proficiency: 85, icon: 'Database' },
+  { id: 18, name: 'Git', category: 'Tools', proficiency: 85, icon: 'Git' },
+  { id: 19, name: 'GitHub', category: 'Tools', proficiency: 88, icon: 'Github' },
+  { id: 20, name: 'VS Code', category: 'Tools', proficiency: 95, icon: 'Vscode' },
+  { id: 21, name: 'Postman', category: 'Tools', proficiency: 85, icon: 'Command' },
+  { id: 22, name: 'Figma', category: 'Tools', proficiency: 80, icon: 'Figma' },
+  { id: 23, name: 'SQL Workbench', category: 'Tools', proficiency: 82, icon: 'Database' },
+  { id: 24, name: 'AWS', category: 'Cloud & DevOps', proficiency: 78, icon: 'Aws' },
+  { id: 25, name: 'Docker', category: 'Cloud & DevOps', proficiency: 80, icon: 'Cpu' },
+  { id: 26, name: 'Vercel', category: 'Cloud & DevOps', proficiency: 90, icon: 'Globe' },
+  { id: 27, name: 'Problem Solving', category: 'Soft Skills', proficiency: 90, icon: 'Brain' },
+  { id: 28, name: 'Team Collaboration', category: 'Soft Skills', proficiency: 92, icon: 'Users' },
+  { id: 29, name: 'Communication', category: 'Soft Skills', proficiency: 88, icon: 'Message' }
+];
+
+const defaultSampleProjects = [
+  {
+    id: 1,
+    title: 'AI Chat Application',
+    description: 'An intelligent real-time chat application powered by OpenAI GPT-4 API. Built supporting streaming text responses, custom system role prompts, dialogue history session logs, database backup threads, secure JWT session cookies, and responsive glassmorphism views.',
+    image: '/assets/images/profile.png',
+    github_url: 'https://github.com',
+    demo_url: 'https://demo.com',
+    tags: 'React, Node.js, Express, OpenAI API, JWT, Tailwind CSS',
+    category: 'AI / ML'
+  },
+  {
+    id: 2,
+    title: 'E-Commerce Platform',
+    description: 'A modern e-commerce application featuring product catalog browsing, advanced search sorting, dynamic checkout cart, Stripe payment gateway integrations, admin product inventory dashboards, and user order logs.',
+    image: '/assets/images/profile.png',
+    github_url: 'https://github.com',
+    demo_url: 'https://demo.com',
+    tags: 'React, Spring Boot, MySQL, Stripe API, Redux Toolkit',
+    category: 'Web Application'
+  },
+  {
+    id: 3,
+    title: 'Personal Portfolio Content Management System',
+    description: 'A content management system allowing dynamic updates to projects, skills, certifications, and achievements. Supports secure administrator authentication, file upload capabilities, downloadable resumes, and visitor tracking dashboards.',
+    image: 'https://media.licdn.com/dms/image/v2/D4E12AQFG_bRKMWbgTg/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1739245056904?e=2147483647&v=beta&t=bDkeH2W5Nbj-grYTJKEYQo_d2YA3EEcctExhpDAWEas',
+    github_url: 'https://github.com',
+    demo_url: 'https://demo.com',
+    tags: 'React.js, Node.js, Express, Firebase, JWT, Netlify',
+    category: 'Full Stack'
+  },
+  {
+    id: 4,
+    title: 'Hospital Management System',
+    description: 'An enterprise healthcare dashboard for managing patient medical records, doctor scheduling, dynamic appointment booking, prescription logs, inventory billing, and role-based staff portals.',
+    image: '/assets/images/profile.png',
+    github_url: 'https://github.com',
+    demo_url: 'https://demo.com',
+    tags: 'React, Node.js, Express, MySQL, Material UI, JWT',
+    category: 'Web Application'
+  },
+  {
+    id: 5,
+    title: 'Task Management App',
+    description: 'A collaborative Kanban task management platform inspired by Trello. Enables team workspaces, dragging-and-dropping task cards, assigning card checklists, setting alert deadlines, and real-time socket modifications.',
+    image: '/assets/images/profile.png',
+    github_url: 'https://github.com',
+    demo_url: 'https://demo.com',
+    tags: 'React, Node.js, Socket.io, MongoDB, Tailwind CSS, Framer Motion',
+    category: 'Full Stack'
+  },
+  {
+    id: 6,
+    title: 'Weather Dashboard',
+    description: 'A real-time weather dashboard pulling meteorological metrics from the OpenWeatherMap API. Features location autocomplete search, interactive temperature history charts, humidity logs, UV indexes, and 7-day local forecasts.',
+    image: '/assets/images/profile.png',
+    github_url: 'https://github.com',
+    demo_url: 'https://demo.com',
+    tags: 'React, OpenWeatherMap API, Chart.js, CSS3, Responsive Design',
+    category: 'Web Application'
+  }
+];
+
+const defaultSampleExperiences = [
+  {
+    id: 1,
+    company: 'Grevya Technologies',
+    role: 'Full Stack Engineer Intern',
+    location: 'Coimbatore, India',
+    start_date: 'Feb 2026',
+    end_date: 'June 2026',
+    description: 'Developed modern web applications using React and Firebase. Worked on responsive UI development and CMS implementation. Collaborated using Git and GitHub. Participated in debugging, testing, and deployment. Improved application performance and user experience.',
+    current: false
+  },
+  {
+    id: 2,
+    company: 'AJ & VG Media Pvt Ltd',
+    role: 'Software Developer Intern',
+    location: 'Coimbatore, India',
+    start_date: 'May 2025',
+    end_date: 'Oct 2025',
+    description: 'Developed ERP & CRM Jewellery Management System. Built Inventory Module, Sales Module, Billing Module, and Customer Management. Implemented Gold Weight Tracking and SQL CRUD Operations.',
+    current: false
+  },
+  {
+    id: 3,
+    company: 'TechVantage Solutions',
+    role: 'Junior Web Developer',
+    location: 'Remote',
+    start_date: 'Nov 2024',
+    end_date: 'Apr 2025',
+    description: 'Created highly responsive landing pages and customized theme components using HTML5, CSS3, and JavaScript. Optimized site load times, maintained server deployments, and executed database backups.',
+    current: false
+  }
+];
+
+const defaultSampleEducations = [
+  {
+    id: 1,
+    institution: 'Dr. Mahalingam College of Engineering and Technology',
+    degree: 'Bachelor of Technology',
+    field: 'Information Technology',
+    start_date: '2023',
+    end_date: '2027',
+    grade: 'CGPA: 6.5'
+  },
+  {
+    id: 2,
+    institution: 'Bharani Park Matric Hr.Sec.School',
+    degree: 'Higher Secondary',
+    field: 'Computer Science',
+    start_date: '2021',
+    end_date: '2023',
+    grade: '90%'
+  },
+  {
+    id: 3,
+    institution: 'Bharani Park Matric Hr.Sec.School',
+    degree: 'High School',
+    field: 'General Education',
+    start_date: '2019',
+    end_date: '2021',
+    grade: '92%'
+  }
+];
+
+const defaultSampleCertificates = [
+  { id: 1, title: 'Java Programming Masterclass', issuer: 'Udemy / Oracle Academy', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'JV-2024' },
+  { id: 2, title: 'Python for Data Science', issuer: 'IBM / Coursera', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'PYDS-2024' },
+  { id: 3, title: 'Responsive Web Development', issuer: 'freeCodeCamp', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'FCC-RWD' },
+  { id: 4, title: 'React Developer Certification', issuer: 'Meta / Coursera', issue_date: '2025', verification_url: 'https://verification.com', credential_id: 'META-REACT' },
+  { id: 5, title: 'SQL & Database Administration', issuer: 'Oracle / Udemy', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'SQL-DBA' },
+  { id: 6, title: 'UI/UX Design using Figma', issuer: 'Figma Academy', issue_date: '2025', verification_url: 'https://verification.com', credential_id: 'FIG-UIUX' },
+  { id: 7, title: 'Git & GitHub Professional', issuer: 'Atlassian / Coursera', issue_date: '2024', verification_url: 'https://verification.com', credential_id: 'GIT-PRO' },
+  { id: 8, title: 'Machine Learning Fundamentals', issuer: 'Stanford / Coursera', issue_date: '2025', verification_url: 'https://verification.com', credential_id: 'STAN-ML' }
+];
+
+const defaultSampleAchievements = [
+  { id: 1, title: 'Smart India Hackathon Participant', organization: 'Govt of India', date: '2025', description: 'Participated in the national level Smart India Hackathon solving enterprise problem statements.', type: 'Hackathon' },
+  { id: 2, title: 'Coding Competition Winner', organization: 'CodeChef College Chapter', date: '2024', description: 'Secured 1st place in the college-level programming competition.', type: 'Competition' },
+  { id: 3, title: 'Open Source Contributor', organization: 'GitHub / Vite', date: '2025', description: 'Contributed documentation fixes and core translations to several open source modules.', type: 'Contribution' },
+  { id: 4, title: 'Full Stack Developer Certification', organization: 'DevAcademy', date: '2025', description: 'Completed intensive full stack development program covering React and Spring Boot.', type: 'Certification' },
+  { id: 5, title: 'AI Project Completion', organization: 'Self-directed', date: '2025', description: 'Successfully engineered and deployed an OpenAI GPT-4 API chat application.', type: 'Project' },
+  { id: 6, title: 'Dean\'s List', organization: 'Dr. MCET Academic Office', date: '2024', description: 'Received certificates of academic excellence for staying in top ranking divisions.', type: 'Academic' },
+  { id: 7, title: 'Research Publication', organization: 'IEEE Student Conference', date: '2025', description: 'Published a paper investigating the applications of IoT systems in smart environment sensors.', type: 'Academic' },
+  { id: 8, title: 'Technical Workshop Participation', organization: 'AWS User Group India', date: '2024', description: 'Attended full-day training workshops covering AWS cloud deployment architecture practices.', type: 'Event' },
+  { id: 9, title: 'Leadership Award', organization: 'SKCT Tech Club', date: '2024', description: 'Honored as the lead coordinator managing campus hackathon activities and events.', type: 'Award' }
+];
+
+const defaultSampleTestimonials = [
+  { id: 1, client_name: 'Sarah Jenkins', position: 'Senior Talent Partner', company: 'Google Cloud APAC', feedback: 'Daniel is an exceptional student with a strong grasp of Full Stack Development and IoT. His Accident Detection project showcased great problem-solving skills.', rating: 5, image: '/assets/images/profile.png' }
+];
+
+const defaultSampleBlogs = [
+  { id: 1, title: 'Getting Started with React and Tailwind CSS', excerpt: 'Learn how to build modern, beautifully styled web applications with React and Tailwind CSS.', date: '2025-06-15', read_time: '5 min read', category: 'Frontend' },
+  { id: 2, title: 'Building RESTful APIs with Node.js and Express', excerpt: 'A comprehensive step-by-step guide to developing scalable and secure backend interfaces.', date: '2025-05-20', read_time: '8 min read', category: 'Backend' }
+];
+
+
 const isPlaceholderImage = (img) => {
   if (!img) return true;
   const normalized = img.trim().toLowerCase();
@@ -153,15 +362,15 @@ const Home = () => {
   const { darkMode, toggleTheme } = useTheme();
   
   // Data State
-  const [profile, setProfile] = useState(null);
-  const [projects, setProjects] = useState([]);
-  const [skills, setSkills] = useState([]);
-  const [experience, setExperience] = useState([]);
-  const [education, setEducation] = useState([]);
-  const [certificates, setCertificates] = useState([]);
-  const [achievements, setAchievements] = useState([]);
-  const [testimonials, setTestimonials] = useState([]);
-  const [blogs, setBlogs] = useState([]);
+  const [profile, setProfile] = useState(defaultSampleProfile);
+  const [projects, setProjects] = useState(defaultSampleProjects);
+  const [skills, setSkills] = useState(defaultSampleSkills);
+  const [experience, setExperience] = useState(defaultSampleExperiences);
+  const [education, setEducation] = useState(defaultSampleEducations);
+  const [certificates, setCertificates] = useState(defaultSampleCertificates);
+  const [achievements, setAchievements] = useState(defaultSampleAchievements);
+  const [testimonials, setTestimonials] = useState(defaultSampleTestimonials);
+  const [blogs, setBlogs] = useState(defaultSampleBlogs);
 
   // Static Assets Status
   const [resumeAvailable, setResumeAvailable] = useState(true);
